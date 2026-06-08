@@ -45,11 +45,20 @@ function App() {
 
       <button onClick={addTask}>Add Task</button>
 
-      <div>
-        {tasks.map((t) => (
-          <p key={t._id}>{t.title}</p>
-        ))}
-      </div>
+    <div>
+  {tasks.map((t, index) => (
+    <div key={t._id}>
+      <p>
+        Task {index + 1}: {t.title}
+      </p>
+
+      <button>Pending</button>
+      <button>Completed</button>
+
+      <hr />
+    </div>
+  ))}
+</div>
     </div>
   );
 }
