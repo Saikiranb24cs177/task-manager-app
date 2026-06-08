@@ -44,6 +44,12 @@ function App() {
       />
 
       <button onClick={addTask}>Add Task</button>
+      <button
+  onClick={() => setTasks([])}
+  style={{ marginLeft: "10px" }}
+>
+  Clear History
+</button>
 
     <div>
   {tasks.map((t, index) => (
