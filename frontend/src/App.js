@@ -3,6 +3,17 @@ import React, { useState, useEffect } from "react";
 function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+  const savedTasks = localStorage.getItem("tasks");
+
+  if (savedTasks) {
+    setTasks(JSON.parse(savedTasks));
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}, [tasks]);
 
   // Fetch tasks
   useEffect(() => {
