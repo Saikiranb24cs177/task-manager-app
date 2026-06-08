@@ -6,7 +6,7 @@ function App() {
 
   // Fetch tasks
   useEffect(() => {
-    fetch("https://task-manager-4xtp.onrender.com/tasks")
+    fetch("https://task-manager-app-1-wn5m.onrender.com/api/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, []);
