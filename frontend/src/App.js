@@ -52,8 +52,29 @@ function App() {
         Task {index + 1}: {t.title}
       </p>
 
-      <button>Pending</button>
-      <button>Completed</button>
+      <p>
+        Status: {t.completed ? "Completed ✅" : "Pending ⏳"}
+      </p>
+
+      <button
+        onClick={() => {
+          const updatedTasks = [...tasks];
+          updatedTasks[index].completed = false;
+          setTasks(updatedTasks);
+        }}
+      >
+        Pending
+      </button>
+
+      <button
+        onClick={() => {
+          const updatedTasks = [...tasks];
+          updatedTasks[index].completed = true;
+          setTasks(updatedTasks);
+        }}
+      >
+        Completed
+      </button>
 
       <hr />
     </div>
