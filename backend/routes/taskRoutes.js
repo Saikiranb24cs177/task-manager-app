@@ -14,6 +14,7 @@ router.post("/", (req, res) => {
   };
 
   tasks.push(newTask);
+
   res.json(newTask);
 });
 
