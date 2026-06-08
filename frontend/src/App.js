@@ -1,6 +1,5 @@
-import "./App.css";
 import React, { useState, useEffect } from "react";
-
+import "./App.css";
 function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
@@ -76,9 +75,28 @@ useEffect(() => {
         Status: {t.completed ? "Completed ✅" : "Pending ⏳"}
       </p>
 
-  <button>Pending</button>
-<button>Completed</button>
-      <button
+  <button
+  className="pending"
+  onClick={() => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].completed = false;
+    setTasks(updatedTasks);
+  }}
+>
+  Pending
+</button>
+<button
+  className="completed"
+  onClick={() => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].completed = true;
+    setTasks(updatedTasks);
+  }}
+>
+  Completed
+</button>
+   <button
+  className="delete"
   onClick={() => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
