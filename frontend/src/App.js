@@ -16,7 +16,7 @@ function App() {
     if (!task) return;
 
     const response = await fetch(
-      "https://task-manager-app-1-wn5m.onrender.com",
+      "https://task-manager-app-1-wn5m.onrender.com/api/tasks",
       {
         method: "POST",
         headers: {
