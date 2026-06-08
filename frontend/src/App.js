@@ -81,6 +81,14 @@ function App() {
       >
         Completed
       </button>
+      <button
+  onClick={() => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+  }}
+>
+  Delete
+</button>
 
       <hr />
     </div>
