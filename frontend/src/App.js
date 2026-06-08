@@ -1,3 +1,4 @@
+import "./App.css";
 import React, { useState, useEffect } from "react";
 
 function App() {
@@ -44,7 +45,7 @@ useEffect(() => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="container">
       <h1>Task Manager</h1>
 
       <input
@@ -54,7 +55,9 @@ useEffect(() => {
         onChange={(e) => setTask(e.target.value)}
       />
 
-      <button onClick={addTask}>Add Task</button>
+    <button className="add-btn" onClick={addTask}>
+  Add Task
+</button>
       <button
   onClick={() => setTasks([])}
   style={{ marginLeft: "10px" }}
@@ -73,25 +76,8 @@ useEffect(() => {
         Status: {t.completed ? "Completed ✅" : "Pending ⏳"}
       </p>
 
-      <button
-        onClick={() => {
-          const updatedTasks = [...tasks];
-          updatedTasks[index].completed = false;
-          setTasks(updatedTasks);
-        }}
-      >
-        Pending
-      </button>
-
-      <button
-        onClick={() => {
-          const updatedTasks = [...tasks];
-          updatedTasks[index].completed = true;
-          setTasks(updatedTasks);
-        }}
-      >
-        Completed
-      </button>
+  <button>Pending</button>
+<button>Completed</button>
       <button
   onClick={() => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
