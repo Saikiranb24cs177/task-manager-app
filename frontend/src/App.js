@@ -143,7 +143,7 @@ useEffect(() => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
   }}
->
+  >
   <FaTrash /> Delete
 </button>
 
