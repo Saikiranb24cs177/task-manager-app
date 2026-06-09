@@ -68,10 +68,11 @@ useEffect(() => {
       />
 
 <input
-  type="date"
-  value={dueDate}
-  onChange={(e) => setDueDate(e.target.value)}
-  style={{ marginLeft: "10px", padding: "10px" }}
+  type="text"
+  placeholder="Search task"
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  style={{ marginLeft: "10px" }}
 />
 
 <input
