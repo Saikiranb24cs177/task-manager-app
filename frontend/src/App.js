@@ -68,15 +68,18 @@ useEffect(() => {
       />
 
 <input
+  type="date"
+  value={dueDate}
+  onChange={(e) => setDueDate(e.target.value)}
+  style={{ marginLeft: "10px", padding: "10px" }}
+/>
+
+<input
   type="text"
   placeholder="Search task"
   value={search}
   onChange={(e) => setSearch(e.target.value)}
-/>
-<input
-  type="date"
-  value={dueDate}
-  onChange={(e) => setDueDate(e.target.value)}
+  style={{ marginLeft: "10px" }}
 />
 <select
   value={priority}
