@@ -151,6 +151,7 @@ useEffect(() => {
     </div>
   ))}
 </div>
+</div>
     
   );
 }
