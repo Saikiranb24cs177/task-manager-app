@@ -116,8 +116,7 @@ useEffect(() => {
         Status: {t.completed ? "Completed ✅" : "Pending ⏳"}
       </p>
     
-
- <button
+<button
   className="pending"
   onClick={() => {
     const updatedTasks = [...tasks];
@@ -127,7 +126,6 @@ useEffect(() => {
 >
   <FaClock /> Pending
 </button>
-
 <button
   className="completed"
   onClick={() => {
