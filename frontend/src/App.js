@@ -151,7 +151,7 @@ useEffect(() => {
     </div>
   ))}
 </div>
-    </div>
+    
   );
 }
 
