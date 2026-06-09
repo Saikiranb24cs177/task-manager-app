@@ -3,7 +3,10 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 function App() {
   const [task, setTask] = useState("");
+  const [search, setSearch] = useState("");
   const [tasks, setTasks] = useState([]);
+  const completedTasks = tasks.filter((t) => t.completed).length;
+  const pendingTasks = tasks.length - completedTasks;
   const [dueDate, setDueDate] = useState("");
   useEffect(() => {
   const savedTasks = localStorage.getItem("tasks");
@@ -51,6 +54,9 @@ useEffect(() => {
   return (
     <div className="container">
       <h1>Task Manager</h1>
+      <p>Total Tasks: {tasks.length}</p>
+      <p>Completed: {completedTasks} ✅</p>
+      <p>Pending: {pendingTasks} ⏳</p>
 
       <input
         type="text"
@@ -63,7 +69,12 @@ useEffect(() => {
   value={dueDate}
   onChange={(e) => setDueDate(e.target.value)}
 />
-
+<input
+  type="text"
+  placeholder="Search task"
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+/>
     <button className="add-btn" onClick={addTask}>
   Add Task
 </button>
@@ -75,7 +86,11 @@ useEffect(() => {
 </button>
 
     <div>
-  {tasks.map((t, index) => (
+  {tasks
+  .filter((t) =>
+    t.title.toLowerCase().includes(search.toLowerCase())
+  )
+  .map((t, index) => (
     <div key={t._id} className="task-card">
       <p>
         Task {index + 1}: {t.title}
