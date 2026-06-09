@@ -1,8 +1,10 @@
+import { FaTrash, FaCheck, FaClock } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import "./App.css";
 function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [dueDate, setDueDate] = useState("");
   useEffect(() => {
   const savedTasks = localStorage.getItem("tasks");
 
@@ -33,7 +35,10 @@ useEffect(() => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ title: task }),
+        body: JSON.stringify({
+  title: task,
+  dueDate: dueDate,
+}),
       }
     );
 
@@ -53,6 +58,11 @@ useEffect(() => {
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
+      <input
+  type="date"
+  value={dueDate}
+  onChange={(e) => setDueDate(e.target.value)}
+/>
 
     <button className="add-btn" onClick={addTask}>
   Add Task
@@ -66,7 +76,7 @@ useEffect(() => {
 
     <div>
   {tasks.map((t, index) => (
-    <div key={t._id}>
+    <div key={t._id} className="task-card">
       <p>
         Task {index + 1}: {t.title}
       </p>
@@ -75,7 +85,7 @@ useEffect(() => {
         Status: {t.completed ? "Completed ✅" : "Pending ⏳"}
       </p>
 
-  <button
+ <button
   className="pending"
   onClick={() => {
     const updatedTasks = [...tasks];
@@ -83,8 +93,9 @@ useEffect(() => {
     setTasks(updatedTasks);
   }}
 >
-  Pending
+  <FaClock /> Pending
 </button>
+
 <button
   className="completed"
   onClick={() => {
@@ -93,16 +104,17 @@ useEffect(() => {
     setTasks(updatedTasks);
   }}
 >
-  Completed
+  <FaCheck /> Completed
 </button>
-   <button
+
+<button
   className="delete"
   onClick={() => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
   }}
 >
-  Delete
+  <FaTrash /> Delete
 </button>
 
       <hr />
