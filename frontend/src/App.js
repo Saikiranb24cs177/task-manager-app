@@ -8,6 +8,7 @@ function App() {
   const completedTasks = tasks.filter((t) => t.completed).length;
   const pendingTasks = tasks.length - completedTasks;
   const [dueDate, setDueDate] = useState("");
+  const [priority, setPriority] = useState("Medium");
   useEffect(() => {
   const savedTasks = localStorage.getItem("tasks");
 
@@ -41,6 +42,7 @@ useEffect(() => {
         body: JSON.stringify({
   title: task,
   dueDate: dueDate,
+  priority: priority
 }),
       }
     );
@@ -75,6 +77,19 @@ useEffect(() => {
   value={search}
   onChange={(e) => setSearch(e.target.value)}
 />
+<input
+  type="date"
+  value={dueDate}
+  onChange={(e) => setDueDate(e.target.value)}
+/>
+<select
+  value={priority}
+  onChange={(e) => setPriority(e.target.value)}
+>
+  <option>High</option>
+  <option>Medium</option>
+  <option>Low</option>
+</select>
     <button className="add-btn" onClick={addTask}>
   Add Task
 </button>
@@ -95,6 +110,7 @@ useEffect(() => {
       <p>
         Task {index + 1}: {t.title}
       </p>
+     <p>📅 Due Date: {t.dueDate}</p> 
 
       <p>
         Status: {t.completed ? "Completed ✅" : "Pending ⏳"}
