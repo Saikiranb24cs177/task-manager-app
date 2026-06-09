@@ -115,6 +115,7 @@ useEffect(() => {
       <p>
         Status: {t.completed ? "Completed ✅" : "Pending ⏳"}
       </p>
+    
 
  <button
   className="pending"
