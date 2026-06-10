@@ -122,7 +122,14 @@ function App() {
 
               <p>📅 Due Date: {t.dueDate}</p>
 
-              <p>Priority: {t.priority}</p>
+              <p>
+                  Priority:
+                   {t.priority === "High"
+    ? " 🔴 High"
+    : t.priority === "Medium"
+    ? " 🟡 Medium"
+    : " 🟢 Low"}
+</p>
 
               <p>
                 Status: {t.completed ? "Completed ✅" : "Pending ⏳"}
