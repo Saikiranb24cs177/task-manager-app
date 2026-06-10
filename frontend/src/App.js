@@ -120,17 +120,21 @@ function App() {
                 Task {index + 1}: {t.title}
               </p>
 
-              <p>📅 Due Date: {t.dueDate}</p>
-
               <p>
-                  Priority:
-                   {t.priority === "High"
+  📅 Due Date:
+  {t.dueDate ? t.dueDate : " No date"}
+</p>
+
+<p>
+  Priority:
+  {t.priority === "High"
     ? " 🔴 High"
     : t.priority === "Medium"
     ? " 🟡 Medium"
-    : " 🟢 Low"}
+    : t.priority === "Low"
+    ? " 🟢 Low"
+    : " No Priority"}
 </p>
-
               <p>
                 Status: {t.completed ? "Completed ✅" : "Pending ⏳"}
               </p>
