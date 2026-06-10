@@ -1,8 +1,7 @@
-```javascript id="0s3f5g"
 const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema({
-  text: {
+  title: {
     type: String,
     required: true,
   },
@@ -12,6 +11,11 @@ const taskSchema = new mongoose.Schema({
     default: false,
   },
 
+  dueDate: {
+    type: String,
+    default: "No date",
+  },
+
   priority: {
     type: String,
     default: "Medium",
@@ -19,4 +23,3 @@ const taskSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Task", taskSchema);
-```

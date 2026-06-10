@@ -8,10 +8,13 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const newTask = {
-    _id: Date.now(),
-    title: req.body.title,
-  };
+ const newTask = {
+  _id: Date.now(),
+  title: req.body.title,
+  dueDate: req.body.dueDate,
+  priority: req.body.priority,
+  completed: false,
+};
 
   tasks.push(newTask);
 
