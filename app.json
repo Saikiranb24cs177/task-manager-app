@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "2ded1f41-2f13-4800-bad1-e656145175e1"
+      }
+    },
+    "android": {
+      "package": "com.saikiran177.taskmanagerapp"
+    }
+  }
+}
