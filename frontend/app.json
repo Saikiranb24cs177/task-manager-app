@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Task Manager",
+    "slug": "task-manager-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+   
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.saikiran188.taskmanager"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "0aeb2898-f277-48dc-9ccd-e5d7ffd7044d"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Task Manager",
+    "slug": "task-manager",
+    "version": "1.0.0",
+
+    "icon": "./assets/images/icon.png",
+
+    "splash": {
+      "image": "./assets/images/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#081229"
+    },
+
+    "android": {
+      "package": "com.saikiran177.frontend"
+    },
+
+    "extra": {
+      "eas": {
+        "projectId": "d8e60c9b-fc94-4e35-b7e9-7b225e38af0a"
+      }
+    }
+  }
+}
